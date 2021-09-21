@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoFireBase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ToDoFireBase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -72,7 +72,7 @@
                                                     <color key="titleColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="l54-Td-qpp" kind="show" id="2me-6q-F15"/>
+                                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mpF-TQ-CRr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uj-3g-oRm">
@@ -84,6 +84,9 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="registerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Vb-vR-n2j"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -111,6 +114,12 @@
                             <constraint firstItem="4P3-jh-dmo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oXv-16-UQL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="pEq-Mc-P8s" id="6M1-aU-kGe"/>
+                        <outlet property="passwordTextField" destination="Wte-eh-ovx" id="i2P-wa-mN5"/>
+                        <outlet property="warnLabel" destination="qwk-NE-Iph" id="SVW-fs-f0Z"/>
+                        <segue destination="l54-Td-qpp" kind="show" identifier="taskSegue" id="Giq-CW-Wca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +128,7 @@
         <!--Tasks-->
         <scene sceneID="uTI-ed-Ym4">
             <objects>
-                <viewController id="6Pz-WC-lkg" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="6Pz-WC-lkg" customClass="TasksViewController" customModule="ToDoFireBase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E64-KH-tri">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +148,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Pz-WC-lkg" id="ihr-Oo-IO0"/>
+                                    <outlet property="delegate" destination="6Pz-WC-lkg" id="hOW-x4-ctY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vYt-oX-alh"/>
@@ -151,8 +164,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="heH-c9-zen">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5YI-Q5-heg"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="yLP-1X-hrQ">
+                            <connections>
+                                <action selector="signOut:" destination="6Pz-WC-lkg" id="drQ-1T-S05"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5YI-Q5-heg">
+                            <connections>
+                                <action selector="addTapped:" destination="6Pz-WC-lkg" id="Y9y-0Q-B4n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="eyl-lR-WGb" id="lUo-Sv-Bxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8M-Dq-T7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,11 +186,11 @@
         <!--Navigation Controller-->
         <scene sceneID="djX-wz-of1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l54-Td-qpp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="l54-Td-qpp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6ZH-dJ-M5p"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ocS-Cu-Wcu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
