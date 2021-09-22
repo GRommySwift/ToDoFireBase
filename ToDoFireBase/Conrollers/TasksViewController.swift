@@ -10,7 +10,20 @@ import Firebase
 
 class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var user: Users!
+    var ref: DatabaseReference!
+    var tasks = Array<Task>()
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let currentUser = Auth.auth().currentUser else { return }
+        user = Users(user: currentUser)
+        
+        ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,10 +41,12 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let alertController = UIAlertController(title: "New task", message: "Add new task", preferredStyle: .alert)
         
         alertController.addTextField()
-        let save = UIAlertAction(title: "Save", style: .default) { _ in
+        let save = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let textField = alertController.textFields?.first, textField.text != "" else { return }
-            //
-            //
+            let task = Task(title: textField.text!, userId: (self?.user.uid)!)
+            let taskRef = self?.ref.child(task.title.lowercased())
+            taskRef?.setValue(task.convertToDictionary())
+            
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(save)

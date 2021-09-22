@@ -15,6 +15,8 @@
 		044FAB6626F81A0900B0F134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044FAB6426F81A0900B0F134 /* LaunchScreen.storyboard */; };
 		044FAB6E26F8220C00B0F134 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FAB6D26F8220C00B0F134 /* TasksViewController.swift */; };
 		044FAB7426F8271F00B0F134 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 044FAB7326F8271F00B0F134 /* GoogleService-Info.plist */; };
+		04F6D3BC26FAB82D00187631 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6D3BB26FAB82D00187631 /* Task.swift */; };
+		04F6D3BE26FAB83C00187631 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6D3BD26FAB83C00187631 /* Users.swift */; };
 		F2C656013901D4E4789BF4A1 /* Pods_ToDoFireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AB2C6ADD46E8CD6431A8DB /* Pods_ToDoFireBase.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		044FAB6726F81A0900B0F134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044FAB6D26F8220C00B0F134 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		044FAB7326F8271F00B0F134 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F6D3BB26FAB82D00187631 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		04F6D3BD26FAB83C00187631 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		41BF58A96AEA25C91B3B57CD /* Pods-ToDoFireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoFireBase.release.xcconfig"; path = "Target Support Files/Pods-ToDoFireBase/Pods-ToDoFireBase.release.xcconfig"; sourceTree = "<group>"; };
 		693F946C80F674183DD962EA /* Pods-ToDoFireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoFireBase.debug.xcconfig"; path = "Target Support Files/Pods-ToDoFireBase/Pods-ToDoFireBase.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AB2C6ADD46E8CD6431A8DB /* Pods_ToDoFireBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoFireBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +71,10 @@
 		044FAB5826F81A0500B0F134 /* ToDoFireBase */ = {
 			isa = PBXGroup;
 			children = (
-				044FAB7126F8225900B0F134 /* Supporting files */,
+				04F6D3C026FAB85600187631 /* Views */,
+				04F6D3BF26FAB84200187631 /* Models */,
 				044FAB7226F8229500B0F134 /* Conrollers */,
+				044FAB7126F8225900B0F134 /* Supporting files */,
 			);
 			path = ToDoFireBase;
 			sourceTree = "<group>";
@@ -78,9 +84,7 @@
 			children = (
 				044FAB5926F81A0500B0F134 /* AppDelegate.swift */,
 				044FAB5B26F81A0500B0F134 /* SceneDelegate.swift */,
-				044FAB5F26F81A0500B0F134 /* Main.storyboard */,
 				044FAB6226F81A0900B0F134 /* Assets.xcassets */,
-				044FAB6426F81A0900B0F134 /* LaunchScreen.storyboard */,
 				044FAB6726F81A0900B0F134 /* Info.plist */,
 				044FAB7326F8271F00B0F134 /* GoogleService-Info.plist */,
 			);
@@ -94,6 +98,24 @@
 				044FAB6D26F8220C00B0F134 /* TasksViewController.swift */,
 			);
 			path = Conrollers;
+			sourceTree = "<group>";
+		};
+		04F6D3BF26FAB84200187631 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04F6D3BB26FAB82D00187631 /* Task.swift */,
+				04F6D3BD26FAB83C00187631 /* Users.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		04F6D3C026FAB85600187631 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				044FAB5F26F81A0500B0F134 /* Main.storyboard */,
+				044FAB6426F81A0900B0F134 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7B65564B6B0EE76474C213C0 /* Frameworks */ = {
@@ -230,6 +252,8 @@
 			files = (
 				044FAB5E26F81A0500B0F134 /* LoginViewController.swift in Sources */,
 				044FAB6E26F8220C00B0F134 /* TasksViewController.swift in Sources */,
+				04F6D3BE26FAB83C00187631 /* Users.swift in Sources */,
+				04F6D3BC26FAB82D00187631 /* Task.swift in Sources */,
 				044FAB5A26F81A0500B0F134 /* AppDelegate.swift in Sources */,
 				044FAB5C26F81A0500B0F134 /* SceneDelegate.swift in Sources */,
 			);
