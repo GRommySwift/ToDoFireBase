@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] (user, error) in
            
             guard error == nil, user != nil else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
                 return
             }
             
